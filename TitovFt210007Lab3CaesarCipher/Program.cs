@@ -142,6 +142,10 @@ namespace TitovFt210007Lab3CaesarCipher
                     }
                     Console.WriteLine(Decode(message, alphabet, key));
                 }
+                else
+                {
+                    Console.WriteLine("Wrong key!");
+                }
             }
         }
     }
