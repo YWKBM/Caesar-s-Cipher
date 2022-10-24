@@ -122,31 +122,48 @@ namespace TitovFt210007Lab3CaesarCipher
                 if (mode == 0)
                 {
                     Console.WriteLine("Enter the key: ");
-                    int key = int.Parse(Console.ReadLine());
-                    if (key > alphabet.Length)
+                    try//обработка ошибок ввода
                     {
-                        Console.WriteLine("Wrog key! Key must be less then alphabet length.");
-                        continue;
+
+                        int key = int.Parse(Console.ReadLine());
+                        if (key > alphabet.Length)
+                        {
+                            Console.WriteLine("Wrog key! Key must be less then alphabet length.");
+                            break;
+                        }
+                        Console.WriteLine(Incode(message, alphabet, key));
+                        break;
                     }
-                    Console.WriteLine(Incode(message, alphabet, key));
-                    break;
+                    catch(FormatException e)
+                    {
+                        Console.WriteLine("Incorect value!");
+                    }
                 }
                 else if (mode == 1)
                 {
                     Console.WriteLine("Enter the key: ");
-                    int key = int.Parse(Console.ReadLine());
-                    if (key > alphabet.Length)
+                    try//обработка ошибок ввода
                     {
-                        Console.WriteLine("Wrog key! Key must be less then alphabet length.");
-                        continue;
+                        int key = int.Parse(Console.ReadLine());
+                        if (key > alphabet.Length)
+                        {
+                            Console.WriteLine("Wrog key! Key must be less then alphabet length.");
+                            break;
+                        }
+                        Console.WriteLine(Decode(message, alphabet, key));
+                        break;
                     }
-                    Console.WriteLine(Decode(message, alphabet, key));
+                    catch(FormatException e)
+                    {
+                        Console.WriteLine("Incorect value!");
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Wrong key!");
                 }
             }
+            
         }
     }
 }
